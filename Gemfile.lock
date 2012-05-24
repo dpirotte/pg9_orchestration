@@ -11,6 +11,7 @@ GEM
     childprocess (0.3.2)
       ffi (~> 1.0.6)
     erubis (2.7.0)
+    facter (1.6.9)
     ffi (1.0.11)
     highline (1.6.12)
     i18n (0.6.0)
@@ -23,6 +24,8 @@ GEM
     net-ssh (2.2.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
+    puppet (2.7.14)
+      facter (>= 1.5.1)
     supply_drop (0.9.0)
     vagrant (1.0.3)
       archive-tar-minitar (= 0.5.2)
@@ -39,5 +42,6 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
+  puppet
   supply_drop
   vagrant
