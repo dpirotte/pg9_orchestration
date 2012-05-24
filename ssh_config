@@ -1,0 +1,9 @@
+Host *
+  User vagrant
+  IdentityFile ~/.vagrant.d/insecure_private_key
+Host db1
+  Hostname 172.16.1.10
+Host db2
+  Hostname 172.16.1.11
+Host db3
+  Hostname 172.16.1.12

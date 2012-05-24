@@ -1,9 +1,6 @@
-vagrant_gem = `gem which vagrant`.chomp
-ssh_options[:keys] = File.join(ENV['HOME'], '.vagrant.d/insecure_private_key')
-ssh_options[:paranoid] = false
 ssh_options[:keys_only] = true
 ssh_options[:user_known_hosts_file] = []
-ssh_options[:config] = false
+ssh_options[:config] = File.join(File.dirname(__FILE__), '../ssh_config')
 set :user, 'vagrant'
 
 require 'rubygems'
@@ -11,8 +8,8 @@ require 'supply_drop'
 
 rubylib = [
   "$RUBYLIB",
-  "#{puppet_destination}/vendor/puppet-2.7.8/lib",
-  "#{puppet_destination}/vendor/facter-1.6.4/lib",
+  "#{puppet_destination}/vendor/puppet-2.7.14/lib",
+  "#{puppet_destination}/vendor/facter-1.6.9/lib",
 ].join(':')
 
 path = [
