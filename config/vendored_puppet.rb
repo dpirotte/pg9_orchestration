@@ -14,8 +14,8 @@ rubylib = [
 
 path = [
   "$PATH",
-  "#{puppet_destination}/vendor/puppet-2.7.8/bin",
-  "#{puppet_destination}/vendor/facter-1.6.4/bin",
+  "#{puppet_destination}/vendor/puppet-2.7.14/bin",
+  "#{puppet_destination}/vendor/facter-1.6.9/bin",
   "/opt/ruby/bin"
 ].join(':')
 
