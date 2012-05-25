@@ -6,7 +6,7 @@ class hosts {
 
 class base {
   include hosts
-  apt::ppa { "pitti/postgresql": }
+  include postgresql
 }
 
 node db1 {
