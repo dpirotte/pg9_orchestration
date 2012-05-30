@@ -77,7 +77,7 @@ unix_socket_directory = '/var/run/postgresql'		# (change requires restart)
 # - Security and Authentication -
 
 #authentication_timeout = 1min		# 1s-600s
-ssl = true				# (change requires restart)
+ssl = false				# (change requires restart)
 #ssl_ciphers = 'ALL:!ADH:!LOW:!EXP:!MD5:@STRENGTH'	# allowed SSL ciphers
 					# (change requires restart)
 #ssl_renegotiation_limit = 512MB	# amount of data between renegotiations
@@ -150,7 +150,7 @@ shared_buffers = 24MB			# min 128kB
 
 # - Settings -
 
-#wal_level = minimal			# minimal, archive, or hot_standby
+wal_level = hot_standby			# minimal, archive, or hot_standby
 					# (change requires restart)
 #fsync = on				# turns forced synchronization on or off
 #synchronous_commit = on		# synchronization level; on, off, or local
@@ -178,9 +178,9 @@ shared_buffers = 24MB			# min 128kB
 
 # - Archiving -
 
-#archive_mode = off		# allows archiving to be done
+archive_mode = on		# allows archiving to be done
 				# (change requires restart)
-#archive_command = ''		# command to use to archive a logfile segment
+archive_command = '/bin/true'		# command to use to archive a logfile segment
 #archive_timeout = 0		# force a logfile segment switch after this
 				# number of seconds; 0 disables
 
@@ -193,13 +193,13 @@ shared_buffers = 24MB			# min 128kB
 
 # These settings are ignored on a standby server
 
-#max_wal_senders = 0		# max number of walsender processes
+max_wal_senders = 10		# max number of walsender processes
 				# (change requires restart)
 #wal_sender_delay = 1s		# walsender cycle time, 1-10000 milliseconds
-#wal_keep_segments = 0		# in logfile segments, 16MB each; 0 disables
+wal_keep_segments = 5000		# in logfile segments, 16MB each; 0 disables
 #vacuum_defer_cleanup_age = 0	# number of xacts by which cleanup is delayed
 #replication_timeout = 60s	# in milliseconds; 0 disables
-#synchronous_standby_names = ''	# standby servers that provide sync rep
+synchronous_standby_names = ''	# standby servers that provide sync rep
 				# comma-separated list of application_name
 				# from standby(s); '*' = all
 
@@ -207,7 +207,7 @@ shared_buffers = 24MB			# min 128kB
 
 # These settings are ignored on a master server
 
-#hot_standby = off			# "on" allows queries during recovery
+hot_standby = on			# "on" allows queries during recovery
 					# (change requires restart)
 #max_standby_archive_delay = 30s	# max delay before canceling queries
 					# when reading WAL from archive;

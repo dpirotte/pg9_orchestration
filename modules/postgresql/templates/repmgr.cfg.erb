@@ -1,0 +1,3 @@
+cluster=test
+node=<%= hostname.gsub(/[a-zA-Z]+/, '') %>
+conninfo='host=<%= hostname %> user=repmgruser dbname=repmgrdb'

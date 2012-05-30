@@ -13,10 +13,11 @@ rubylib = [
 ].join(':')
 
 path = [
+  "/opt/vagrant_ruby/bin",
+  "/opt/ruby/bin",
   "$PATH",
   "#{puppet_destination}/vendor/puppet-2.7.14/bin",
-  "#{puppet_destination}/vendor/facter-1.6.9/bin",
-  "/opt/ruby/bin"
+  "#{puppet_destination}/vendor/facter-1.6.9/bin"
 ].join(':')
 
 set :puppet_command, "env RUBYLIB=#{rubylib} PATH=#{path} puppet apply"
